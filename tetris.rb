@@ -18,7 +18,6 @@ class TetrisGameWindow < Gosu::Window
   attr_reader :block_height, :block_width
   attr_reader :level
   attr_reader :falling_shape
-  attr_accessor :deleted_lines
 
   STATE_PLAY = 1
   STATE_GAMEOVER = 2
@@ -109,15 +108,15 @@ class TetrisGameWindow < Gosu::Window
   end
 
   def delete_lines_of(shape)
-    @deleted_lines = []
+    deleted_lines = []
     if (line_complete(block.y))
- 				@deleted_lines.push(block.y)
+ 				deleted_lines.push(block.y)
       @blocks = @blocks.delete_if { |item| item.y == block.y }
     end
-     @lines_cleared += @deleted_lines.length
+     @lines_cleared += deleted_lines.length
 
   	@blocks.each do |block|
-    	i = @deleted_lines.count { |y| y > block.y }
+    	i = deleted_lines.count { |y| y > block.y }
     	block.y += i*block_height
   	end
   end
