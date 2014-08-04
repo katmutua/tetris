@@ -1,6 +1,6 @@
 require 'gosu'
 
-class Tetris::Shape
+class Shape
   attr_accessor :rotation
 
   def initialize(game)
@@ -12,6 +12,7 @@ class Tetris::Shape
 
     @x = @y = 0
     @falling = true
+
     @rotation_block = @blocks[1]
     @rotation_cycle = 1
     @rotation = 0

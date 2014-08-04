@@ -1,4 +1,4 @@
-class Tertis::ShapeI < Shape
+class ShapeI < Shape
   def initialize(game)
     super(game)
 

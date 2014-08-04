@@ -1,4 +1,6 @@
-class Tertis::ShapeL < Shape
+require 'gosu'
+
+class ShapeL < Shape
   def initialize(game)
     super(game)
 

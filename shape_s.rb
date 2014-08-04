@@ -1,4 +1,6 @@
-class Tetris::ShapeJ < ShapeL
+require 'gosu'
+
+class ShapeS < ShapeZ
   def get_blocks
     old_rotation = @rotation
     @rotation = 0
@@ -9,6 +11,6 @@ class Tetris::ShapeJ < ShapeL
     @rotation = old_rotation
     apply_rotation
 
-    @blocks.each { |block| block.color = 0xff0000ff }
+    @blocks.each { |block| block.color = 0xff00ff00 }
   end
 end
