@@ -1,4 +1,5 @@
 require 'gosu'
+require_relative 'shape_z'
 
 class ShapeS < ShapeZ
   def get_blocks

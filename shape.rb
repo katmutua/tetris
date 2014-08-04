@@ -5,6 +5,7 @@ class Shape
 
   def initialize(game)
     @game = game
+    @blocks = []
     @last_fall_update = Gosu::milliseconds
     @last_move_update = Gosu::milliseconds
 

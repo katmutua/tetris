@@ -1,7 +1,10 @@
+require 'rubygems'
+require 'gosu'
+
 class ShapeI < Shape
   def initialize(game)
     super(game)
-
+    @blocks = []
     @rotation_block = @blocks[1]
     @rotation_cycle = 2
   end

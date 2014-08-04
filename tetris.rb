@@ -1,10 +1,24 @@
-require 'gosu'
+[
+  'rubygems',
+  'gosu',
+].each(&method(:require))
+
+require_relative 'shape'
+require_relative 'shape_i'
+require_relative 'block'
+require_relative 'shape_l'
+require_relative 'shape_j'
+require_relative 'shape_t'
+require_relative 'shape_s'
+require_relative 'shape_z'
+require_relative 'shape_cube'
 
 class TetrisGameWindow < Gosu::Window
   attr_accessor :blocks
   attr_reader :block_height, :block_width
   attr_reader :level
   attr_reader :falling_shape
+  attr_accessor :deleted_lines
 
   STATE_PLAY = 1
   STATE_GAMEOVER = 2
@@ -26,7 +40,7 @@ class TetrisGameWindow < Gosu::Window
 
     self.caption = "Tetris : #{@lines_cleared} lines"
 
-    @song = Gosu::Song.new("TetrisB_8bit.ogg")
+    @song = Gosu::Song.new("bongz.mp3")
   end
 
   def update
@@ -80,7 +94,6 @@ class TetrisGameWindow < Gosu::Window
     if (@falling_shape != nil)
       @blocks += @falling_shape.get_blocks
     end
-
     generator = Random.new
     shapes = [ShapeI.new(self), ShapeL.new(self), ShapeJ.new(self), ShapeCube.new(self), ShapeZ.new(self), ShapeT.new(self), ShapeS.new(self)]
     shape = generator.rand(0..(shapes.length-1))
@@ -96,22 +109,18 @@ class TetrisGameWindow < Gosu::Window
   end
 
   def delete_lines_of(shape)
-    deleted_lines = []
+    @deleted_lines = []
     if (line_complete(block.y))
-      deleted_lines.push(block.y)
+ 				@deleted_lines.push(block.y)
       @blocks = @blocks.delete_if { |item| item.y == block.y }
     end
+     @lines_cleared += @deleted_lines.length
+
+  	@blocks.each do |block|
+    	i = @deleted_lines.count { |y| y > block.y }
+    	block.y += i*block_height
+  	end
   end
-
-  @lines_cleared += deleted_lines.length
-
-  @blocks.each do |block|
-    i = deleted_lines.count { |y| y > block.y }
-    block.y += i*block_height
-  end
-
-end
-
 end
 
 if (!$testing)
