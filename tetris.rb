@@ -23,6 +23,7 @@ class TetrisGameWindow < Gosu::Window
 
   STATE_PLAY = 1
   STATE_GAMEOVER = 2
+  DEFAULT_VALUE = 0
 
   def initialize
     super(320, 640, false)
@@ -36,8 +37,8 @@ class TetrisGameWindow < Gosu::Window
 
     spawn_next_shape
 
-    @lines_cleared = 0
-    @level = 0
+    @lines_cleared = DEFAULT_VALUE
+    @level = DEFAULT_VALUE
 
     self.caption = "Tetris : #{@lines_cleared} lines"
 
@@ -96,9 +97,15 @@ class TetrisGameWindow < Gosu::Window
       @blocks += @falling_shape.get_blocks
     end
     generator = Random.new
-    shapes = [ShapeI.new(self), ShapeL.new(self), ShapeJ.new(self), ShapeCube.new(self), ShapeZ.new(self), ShapeT.new(self), ShapeS.new(self)]
+    shapes = generate_shapes
     shape = generator.rand(0..(shapes.length-1))
     @falling_shape = shapes[shape]
+  end
+
+  def generate_shapes
+    shapes = []
+    shape_types = ['I', 'L', 'J', 'Cube', 'Z', 'T', 'S']
+    shape_types.each { |shape| shapes << Kernel.const_get("Shape#{shape}").new(self)}
   end
 
   def line_complete(y)

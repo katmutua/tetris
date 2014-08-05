@@ -1,4 +1,5 @@
 require 'gosu'
+require_relative 'shape'
 
 class ShapeZ < Shape
   def initialize(game)

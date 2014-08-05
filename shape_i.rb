@@ -1,5 +1,5 @@
-require 'rubygems'
 require 'gosu'
+require_relative 'shape'
 
 class ShapeI < Shape
   def initialize(game)
