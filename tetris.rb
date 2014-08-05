@@ -3,15 +3,17 @@
   'gosu',
 ].each(&method(:require))
 
-require_relative 'shape'
-require_relative 'shape_i'
-require_relative 'block'
-require_relative 'shape_l'
-require_relative 'shape_j'
-require_relative 'shape_t'
-require_relative 'shape_s'
-require_relative 'shape_z'
-require_relative 'shape_cube'
+[
+  'block',
+  'shape',
+  'shape_cube',
+  'shape_i', 
+  'shape_j',
+  'shape_l', 
+  'shape_s', 
+  'shape_t', 
+  'shape_z'
+].each{ |file| require_relative File.expand_path("#{file}.rb") }
 
 class TetrisGameWindow < Gosu::Window
   attr_accessor :blocks

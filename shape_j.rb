@@ -1,4 +1,5 @@
 require 'gosu'
+require_relative 'shape_l'
 
 class ShapeJ < ShapeL
   def get_blocks
