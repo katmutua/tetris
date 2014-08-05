@@ -109,8 +109,8 @@ class TetrisGameWindow < Gosu::Window
 
   def delete_lines_of(shape)
     deleted_lines = []
-    if (line_complete(block.y))
- 				deleted_lines.push(block.y)
+    if (line_complete(14))
+ 				deleted_lines.push(14)
       @blocks = @blocks.delete_if { |item| item.y == block.y }
     end
      @lines_cleared += deleted_lines.length
