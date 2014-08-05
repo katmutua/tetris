@@ -30,19 +30,13 @@ class TetrisGameWindow < Gosu::Window
 
     @block_width = 32
     @block_height = 32
-
     @blocks = []
-
     @state = STATE_PLAY
-
     spawn_next_shape
-
+    @song = Gosu::Song.new("bongz.mp3")
     @lines_cleared = DEFAULT_VALUE
     @level = DEFAULT_VALUE
-
     self.caption = "Tetris : #{@lines_cleared} lines"
-
-    @song = Gosu::Song.new("bongz.mp3")
   end
 
   def update
