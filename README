@@ -1,0 +1,3 @@
+Tetris
+Game Development in ruby using `Gosu`.
+Troubleshooting issues with gosu for ruby 2.0.0: Install as `gem install gosu --platform=ruby`
