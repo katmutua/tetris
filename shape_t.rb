@@ -2,9 +2,9 @@ require 'gosu'
 require_relative 'shape'
 
 class ShapeT < Shape
+  
   def initialize(game)
     super(game)
-
     @rotation_block = @blocks[1]
     @rotation_cycle = 4
   end
@@ -22,4 +22,5 @@ class ShapeT < Shape
     apply_rotation
     @blocks.each { |block| block.color = 0xffff00ff }
   end
+  
 end

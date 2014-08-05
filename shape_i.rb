@@ -2,6 +2,7 @@ require 'gosu'
 require_relative 'shape'
 
 class ShapeI < Shape
+
   def initialize(game)
     super(game)
     @blocks = []
@@ -23,4 +24,5 @@ class ShapeI < Shape
 
     @blocks.each { |block| block.color = 0xffb2ffff }
   end
+  
 end

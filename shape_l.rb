@@ -2,9 +2,9 @@ require 'gosu'
 require_relative 'shape'
 
 class ShapeL < Shape
+  
   def initialize(game)
     super(game)
-
     @rotation_block = @blocks[1]
     @rotation_cycle = 4
   end
@@ -23,4 +23,5 @@ class ShapeL < Shape
 
     @blocks.each { |block| block.color = 0xffff7f00 }
   end
+  
 end

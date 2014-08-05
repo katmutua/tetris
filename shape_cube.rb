@@ -1,4 +1,5 @@
 class ShapeCube < Shape
+  
   def get_blocks
     @blocks[0].x = @x
     @blocks[1].x = @x
@@ -11,4 +12,5 @@ class ShapeCube < Shape
 
     @blocks.each { |block| block.color = 0xffffff00 }
   end
+  
 end
