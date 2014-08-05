@@ -98,7 +98,7 @@ class TetrisGameWindow < Gosu::Window
 
   def generate_shapes
     shapes = []
-    shape_types = ['I', 'L', 'J', 'Cube', 'Z', 'T', 'S']
+    shape_types = ['Cube', 'I', 'J', 'L', 'T','S','Z']
     shape_types.each { |shape| shapes << Kernel.const_get("Shape#{shape}").new(self)}
   end
 
