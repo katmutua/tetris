@@ -24,6 +24,7 @@ class TetrisGameWindow < Gosu::Window
   STATE_PLAY = 1
   STATE_GAMEOVER = 2
   DEFAULT_VALUE = 0
+  MAX_LINES = 10
 
   def initialize
     super(320, 640, false)
@@ -47,7 +48,7 @@ class TetrisGameWindow < Gosu::Window
         @falling_shape.update
       end
 
-      @level = @lines_cleared / 10
+      @level = @lines_cleared / MAX_LINES
       self.caption = "Tetris : #{@lines_cleared} lines"
     else
       if (button_down?(Gosu::KbSpace))
@@ -90,6 +91,7 @@ class TetrisGameWindow < Gosu::Window
     if (@falling_shape != nil)
       @blocks += @falling_shape.get_blocks
     end
+
     generator = Random.new
     shapes = generate_shapes
     shape = generator.rand(0..(shapes.length-1))

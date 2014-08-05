@@ -1,5 +1,6 @@
 class ShapeCube < Shape
   
+  WHIITE_COLOR = 0xffffff00
   def get_blocks
     @blocks[0].x = @x
     @blocks[1].x = @x
@@ -10,7 +11,7 @@ class ShapeCube < Shape
     @blocks[2].y = @blocks[0].y
     @blocks[3].y = @blocks[2].y + @game.block_height
 
-    @blocks.each { |block| block.color = 0xffffff00 }
+    @blocks.each { |block| block.color = WHIITE_COLOR }
   end
-  
+
 end

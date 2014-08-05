@@ -3,6 +3,8 @@ require_relative 'shape'
 
 class ShapeI < Shape
 
+  LIGHT_PINK_COLOR = 0xffb2ffff
+  
   def initialize(game)
     super(game)
     @blocks = []
@@ -22,7 +24,7 @@ class ShapeI < Shape
 
     apply_rotation
 
-    @blocks.each { |block| block.color = 0xffb2ffff }
+    @blocks.each { |block| block.color = LIGHT_PINK_COLOR }
   end
-  
+
 end

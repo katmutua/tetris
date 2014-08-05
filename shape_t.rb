@@ -3,6 +3,7 @@ require_relative 'shape'
 
 class ShapeT < Shape
   
+  RED_1_COLOR = 0xffff0000
   def initialize(game)
     super(game)
     @rotation_block = @blocks[1]
@@ -20,7 +21,7 @@ class ShapeT < Shape
     @blocks[3].y = @y + @game.block_height
 
     apply_rotation
-    @blocks.each { |block| block.color = 0xffff00ff }
+    @blocks.each { |block| block.color = RED_1_COLOR }
   end
-  
+
 end

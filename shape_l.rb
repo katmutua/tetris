@@ -3,6 +3,8 @@ require_relative 'shape'
 
 class ShapeL < Shape
   
+  AZURE_COLOR = 0xffff7f00
+
   def initialize(game)
     super(game)
     @rotation_block = @blocks[1]
@@ -21,7 +23,7 @@ class ShapeL < Shape
 
     apply_rotation
 
-    @blocks.each { |block| block.color = 0xffff7f00 }
+    @blocks.each { |block| block.color = AZURE_COLOR }
   end
-  
+
 end

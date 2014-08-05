@@ -3,7 +3,7 @@ require_relative 'shape'
 
 class ShapeZ < Shape
 
-  RED_COLOR = 0xffff0000
+  RED_1_COLOR = 0xffff0000
 
   def initialize(game)
     super(game)
@@ -23,7 +23,7 @@ class ShapeZ < Shape
     @blocks[3].y = @y + @game.block_height
 
     apply_rotation
-    @blocks.each { |block| block.color = RED_COLOR }
+    @blocks.each { |block| block.color = RED_1_COLOR }
   end
-  
+
 end

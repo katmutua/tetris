@@ -3,6 +3,8 @@ require_relative 'shape_l'
 
 class ShapeJ < ShapeL
   
+  BLUE_COLOR = 0xff0000ff
+  
   def get_blocks
     old_rotation = @rotation
     @rotation = 0
@@ -13,7 +15,7 @@ class ShapeJ < ShapeL
     @rotation = old_rotation
     apply_rotation
 
-    @blocks.each { |block| block.color = 0xff0000ff }
+    @blocks.each { |block| block.color = BLUE_COLOR }
   end
-  
+
 end
