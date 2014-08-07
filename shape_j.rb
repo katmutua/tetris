@@ -1,10 +1,9 @@
-require 'gosu'
 require_relative 'shape_l'
 
 class ShapeJ < ShapeL
   
   BLUE_COLOR = 0xff0000ff
-  
+
   def get_blocks
     old_rotation = @rotation
     @rotation = 0

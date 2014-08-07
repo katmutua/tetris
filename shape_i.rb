@@ -1,4 +1,3 @@
-require 'gosu'
 require_relative 'shape'
 
 class ShapeI < Shape
