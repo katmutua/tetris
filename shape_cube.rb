@@ -1,3 +1,5 @@
+require_relative 'shape'
+
 class ShapeCube < Shape
   
   WHIITE_COLOR = 0xffffff00
