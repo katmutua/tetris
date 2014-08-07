@@ -1,3 +1,4 @@
+require 'gosu'
 require_relative 'shape'
 
 class ShapeL < Shape
