@@ -48,7 +48,7 @@ class TetrisGameWindow < Gosu::Window
         @falling_shape.update
       end
 
-      @level = @lines_cleared / MAX_LINES
+      @level = @lines_cleared / 10
       self.caption = "Tetris : #{@lines_cleared} lines"
     else
       if (button_down?(Gosu::KbSpace))
@@ -102,6 +102,7 @@ class TetrisGameWindow < Gosu::Window
     shapes = []
     shape_types = ['Cube', 'I', 'J', 'L', 'T','S','Z']
     shape_types.each { |shape| shapes << Kernel.const_get("Shape#{shape}").new(self) }
+    shapes
   end
 
   def line_complete(y)
