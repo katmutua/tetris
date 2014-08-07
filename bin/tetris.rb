@@ -13,7 +13,7 @@
   'shape_s', 
   'shape_t', 
   'shape_z'
-].each{ |file| require_relative File.expand_path("#{file}.rb") }
+].each{ |file| require_relative File.expand_path("lib/#{file}.rb") }
 
 class TetrisGameWindow < Gosu::Window
   attr_accessor :blocks
