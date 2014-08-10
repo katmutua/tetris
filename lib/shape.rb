@@ -59,7 +59,7 @@ class Shape
     if (@game.button_down?(Gosu::KbDown))
       updateInterval = 100
     else
-      updateInterval = 500 - @game.level*50
+      updateInterval = 500 - @game.level * 50
     end
     if (Gosu::milliseconds - @last_fall_update > updateInterval)
       @last_fall_update = Gosu::milliseconds
