@@ -1,19 +1,20 @@
 [
-  'rubygems',
-  'gosu',
+    'rubygems',
+    'gosu',
 ].each(&method(:require))
 
 [
-  'block',
-  'shape',
-  'shape_cube',
-  'shape_i', 
-  'shape_j',
-  'shape_l', 
-  'shape_s', 
-  'shape_t', 
-  'shape_z'
-].each{ |file| require_relative File.expand_path("lib/#{file}.rb") }
+    'block',
+    'shape',
+    'shape_cube',
+    'shape_i',
+    'shape_j',
+    'shape_l',
+    'shape_s',
+    'shape_t',
+    'shape_z'
+].each { |file| require_relative  File.expand_path("../../lib/#{file}.rb") }
+
 
 class TetrisGameWindow < Gosu::Window
   attr_accessor :blocks
@@ -100,7 +101,7 @@ class TetrisGameWindow < Gosu::Window
 
   def generate_shapes
     shapes = []
-    shape_types = ['Cube', 'I', 'J', 'L', 'T','S','Z']
+    shape_types = ['Cube', 'I', 'J', 'L', 'T', 'S', 'Z']
     shape_types.each { |shape| shapes << Kernel.const_get("Shape#{shape}").new(self) }
     shapes
   end
@@ -116,15 +117,15 @@ class TetrisGameWindow < Gosu::Window
   def delete_lines_of(shape)
     deleted_lines = []
     if (line_complete(14))
- 				deleted_lines.push(14)
+      deleted_lines.push(14)
       @blocks = @blocks.delete_if { |item| item.y == block.y }
     end
-     @lines_cleared += deleted_lines.length
+    @lines_cleared += deleted_lines.length
 
-  	@blocks.each do |block|
-    	i = deleted_lines.count { |y| y > block.y }
-    	block.y += i*block_height
-  	end
+    @blocks.each do |block|
+      i = deleted_lines.count { |y| y > block.y }
+      block.y += i*block_height
+    end
   end
 end
 
