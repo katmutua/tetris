@@ -1,4 +1,5 @@
-<img src="http://www.jamesiliff.com/wp-content/uploads/2011/11/tetris1.jpg" width="300">
+####Tetris
+
  - Game Development dojo in ruby using `Gosu`.
  - Troubleshooting issues with gosu for ruby 2.0.0:
 
